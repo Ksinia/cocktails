@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./DrinkImages.css";
 
 function DrinkImages(props) {
   const drinks = props.drinks;
@@ -8,10 +9,10 @@ function DrinkImages(props) {
       <h1>Drink Images</h1>
       This page will show images of the {decodeURIComponent(props.category)}.
       <br></br>
-      <div>
+      <div className="images">
         {drinks &&
           drinks.map(drink => (
-            <div key={drink.id}>
+            <div className="drinkimage" key={drink.id}>
               <p>{drink.name}</p>
               <img src={drink.imageUrl} alt={drink.name} />
             </div>

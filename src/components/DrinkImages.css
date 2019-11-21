@@ -1,0 +1,20 @@
+.drinks-images {
+  text-align: center;
+}
+.images {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 200px;
+}
+
+.drinkimage {
+  margin: 1rem;
+  text-align: center;
+}

@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./CocktailsList.css";
 
 export default class CocktailsList extends Component {
   render() {
     return (
-      <div className="dogs-list">
+      <div className="drinks-list">
         <h1>List of drinks</h1>
         {!this.props.cocktails && "Loading..."}
         {this.props.cocktails && (
