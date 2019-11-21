@@ -8,7 +8,6 @@ export default class CocktailsListContainer extends Component {
     this.setState({
       cocktails: drinks
     });
-    console.log(this.state.cocktails);
   }
 
   componentDidMount() {
@@ -16,7 +15,6 @@ export default class CocktailsListContainer extends Component {
       .then(res => res.json())
       .then(data => {
         const cocktails = data.drinks.map(drink => drink.strCategory);
-        console.log(cocktails);
         this.updateDrinks(cocktails);
       });
   }
