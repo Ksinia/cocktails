@@ -3,11 +3,11 @@ import DrinkImages from "./DrinkImages";
 
 class DrinkImagesContainer extends Component {
   state = {
-    images: null
+    drinks: null
   };
-  updateImages(images) {
+  updateDrinks(drinks) {
     this.setState({
-      images: images
+      drinks: drinks
     });
   }
 
@@ -16,11 +16,12 @@ class DrinkImagesContainer extends Component {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${drink}`)
       .then(res => res.json())
       .then(data =>
-        this.updateImages(
-          data.drinks.map(drink => {
-            return drink.strDrinkThumb;
-          })
-          //   data.drinks
+        this.updateDrinks(
+          data.drinks.map(drink => ({
+            id: drink.idDrink,
+            imageUrl: drink.strDrinkThumb,
+            name: drink.strDrink
+          }))
         )
       )
       .catch(console.error);
@@ -28,8 +29,8 @@ class DrinkImagesContainer extends Component {
   render() {
     return (
       <DrinkImages
-        images={this.state.images}
-        drink={this.props.match.params.drink}
+        drinks={this.state.drinks}
+        category={this.props.match.params.drink}
       />
     );
   }
